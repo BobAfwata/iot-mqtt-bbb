@@ -3,8 +3,8 @@ import paho.mqtt.client as mqtt
 
 def onConnect(client, obj, flags, rc):
     print("Connected. rc = %s " % rc)
-    client.subscribe("iot-bbb-example/weather/temperature")
-    client.subscribe("iot-bbb-example/weather/precipitation")
+    client.subscribe("iot-mqtt-example/weather/temperature")
+    client.subscribe("iot-mqtt-example/weather/precipitation")
 
 # Dummy function to act on temperature data
 def temperatureActuator(temperature):
@@ -22,8 +22,8 @@ def precipitationActuator(precipitation):
     
 def onMessage(mqttc, obj, msg):
     callbacks = {
-        "iot-bbb-example/weather/temperature" : temperatureActuator,
-        "iot-bbb-example/weather/precipitation" : precipitationActuator
+        "iot-mqtt-example/weather/temperature" : temperatureActuator,
+        "iot-mqtt-example/weather/precipitation" : precipitationActuator
     }
     callbacks[msg.topic](msg.payload)
 

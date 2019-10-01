@@ -19,6 +19,6 @@ def readPrecipitation():
         return 'hurricane'
     
 while True:
-    mqtt.single("iot-bbb-example/weather/temperature", readTemp(), hostname="test.mosquitto.org")
-    mqtt.single("iot-bbb-example/weather/precipitation", readPrecipitation(), hostname="test.mosquitto.org")
+    mqtt.single("iot-mqtt-example/weather/temperature", readTemp(), hostname="test.mosquitto.org")
+    mqtt.single("iot-mqtt-example/weather/precipitation", readPrecipitation(), hostname="test.mosquitto.org")
     time.sleep(10)
